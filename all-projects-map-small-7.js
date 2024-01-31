@@ -21,7 +21,7 @@ let map3 = new mapboxgl.Map({
 // Media query for responsive design (currently unused)
 let mq3 = window.matchMedia("");
 if (mq3.matches) {
-    map3.setZoom(2);
+    map3.setZoom(2.5);
 } else {
     map3.setZoom(2);
 }
@@ -74,7 +74,7 @@ map3.addLayer({
     },
     paint: {
         "circle-radius": 7,
-        "circle-stroke-width": 1,
+        "circle-stroke-width": 2,
         "circle-color": [
             "match",
             ["get", "stageTag"],
