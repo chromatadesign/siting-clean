@@ -68,7 +68,7 @@ map4.addLayer({
     },
     paint: {
         "circle-radius": 7,
-        "circle-stroke-width": 1,
+        "circle-stroke-width": 2,
         "circle-color": [
             "match",
             ["get", "stageTag"],
