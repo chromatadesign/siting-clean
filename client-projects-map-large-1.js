@@ -34,31 +34,22 @@ function getGeoData2() {
     listLocations2.forEach(function (location2) {
         console.log(location2);
 
-        // Extracting latitude and longitude values
+        // Extracting values
         let locationLat2 = location2.querySelector("#locationLatitude2").value;
         let locationLong2 = location2.querySelector("#locationLongitude2").value;
-
-        // Extracting additional location information
         let locationInfo2 = location2.querySelector(".locations-map_card2").innerHTML;
-
-        // Creating a coordinate array
         let coordinates2 = [locationLong2, locationLat2];
-
-        // Extracting location ID
         let locationID2 = location2.querySelector("#locationID2").value;
+        let stageTag2 = location2.querySelector("#stageTag2").value;
+
 
         // Creating a geo-data object
         let geoData2 = {
             type: "Feature",
-            geometry: {
-                type: "Point",
-                coordinates: coordinates2
-            },
-            properties: {
-                id: locationID2,
-                description: locationInfo2
-            },
+            geometry: { type: "Point", coordinates: coordinates2 },
+            properties: { id: locationID2, description: locationInfo2, stageTag: stageTag2 }
         };
+
 
         // Adding the geo-data object to the feature collection if not already present
         if (mapLocations2.features.includes(geoData2) === false) {
@@ -74,21 +65,29 @@ getGeoData2();
 // Function to add points to the map based on the feature collection
 function addMapPoints2() {
     // Adding a layer of circle markers to the map
-    map2.addLayer({
-        id: "locations",
-        type: "circle",
-        source: {
-            type: "geojson",
-            data: mapLocations2
-        },
-        paint: {
-            "circle-radius": 7,
-            "circle-stroke-width": 1,
-            "circle-color": "#575ec8",
-            "circle-opacity": 1,
-            "circle-stroke-color": "white",
-        },
-    });
+map2.addLayer({
+    id: "locations",
+    type: "circle",
+    source: {
+        type: "geojson",
+        data: mapLocations2
+    },
+    paint: {
+        "circle-radius": 7,
+        "circle-stroke-width": 2,
+        "circle-color": [
+            "match",
+            ["get", "stageTag"],
+            "Early", "#F2AE40",
+            "Mid", "#35B9E9",
+            "Late", "#FB97AA",
+            "#686868" // Default color
+        ],
+        "circle-opacity": 1,
+        "circle-stroke-color": "white"
+    }
+});
+
 
     // Adding a click event to show a popup with location details
     map2.on("click", "locations", (e) => {
