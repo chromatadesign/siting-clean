@@ -1,5 +1,4 @@
 // Set the access token for Mapbox
-
 mapboxgl.accessToken = "pk.eyJ1IjoiYmFudGFtY29tdGVjaCIsImEiOiJjbG9mdXV6NGkwc2hqMm1xZW9oajNpbGY0In0.TXWumDIlMm3SwVlURA-RuA";
 
 // Initialize an empty FeatureCollection for map locations
@@ -52,8 +51,7 @@ function getGeoData3() {
             },
             properties: {
                 id: locationID3,
-                description: locationInfo3,
-                stagetype: stagetype3
+                description: locationInfo3
             },
         };
 
@@ -72,28 +70,20 @@ getGeoData3();
 function addMapPoints3() {
     // Add a layer for the location points
     map3.addLayer({
-    id: "locations",
-    type: "circle",
-    source: {
-        type: "geojson",
-        data: mapLocations3
-    },
-    paint: {
-        "circle-radius": 7,
-        "circle-stroke-width": 1,
-        "circle-color": [
-            "match",
-            ["get", "stagetype"],
-            "Early", "#F2AE40",
-            "Mid", "#35B9E9",
-            "Late", "#FB97AA",
-            "#686868" // Default color
-        ],
-        "circle-opacity": 1,
-        "circle-stroke-color": "white",
-    },
-});
-
+        id: "locations",
+        type: "circle",
+        source: {
+            type: "geojson",
+            data: mapLocations3
+        },
+        paint: {
+            "circle-radius": 7,
+            "circle-stroke-width": 1,
+            "circle-color": "#575ec8",
+            "circle-opacity": 1,
+            "circle-stroke-color": "white",
+        },
+    });
 
     // Add a click event listener to display a popup with the location information
     map3.on("click", "locations", (e) => {
