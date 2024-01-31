@@ -81,7 +81,7 @@ map2.addLayer({
             "Early", "#F2AE40",
             "Mid", "#35B9E9",
             "Late", "#FB97AA",
-            "#686868" // Default color
+            "#D2D2D2" // Default color
         ],
         "circle-opacity": 1,
         "circle-stroke-color": "white"
