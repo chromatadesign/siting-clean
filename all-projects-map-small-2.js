@@ -36,6 +36,7 @@ function getGeoData3() {
 
         // Extract latitude, longitude, and other information from the DOM elements
         let locationLat3 = location3.querySelector("#locationLatitude3").value;
+        let stagetype3 = stagetype3.querySelector("#stage3").value;
         let locationLong3 = location3.querySelector("#locationLongitude3").value;
         let locationInfo3 = location3.querySelector(".locations-map_card3").innerHTML;
         let coordinates3 = [locationLong3, locationLat3];
@@ -51,6 +52,7 @@ function getGeoData3() {
             properties: {
                 id: locationID3,
                 description: locationInfo3
+                stagetype: stagetype3
             },
         };
 
@@ -69,20 +71,28 @@ getGeoData3();
 function addMapPoints3() {
     // Add a layer for the location points
     map3.addLayer({
-        id: "locations",
-        type: "circle",
-        source: {
-            type: "geojson",
-            data: mapLocations3
-        },
-        paint: {
-            "circle-radius": 7,
-            "circle-stroke-width": 1,
-            "circle-color": "#575ec8",
-            "circle-opacity": 1,
-            "circle-stroke-color": "white",
-        },
-    });
+    id: "locations",
+    type: "circle",
+    source: {
+        type: "geojson",
+        data: mapLocations3
+    },
+    paint: {
+        "circle-radius": 7,
+        "circle-stroke-width": 1,
+        "circle-color": [
+            "match",
+            ["get", "stagetype"],
+            "Early", "#F2AE40",
+            "Mid", "#35B9E9",
+            "Late", "#FB97AA",
+            "#686868" // Default color
+        ],
+        "circle-opacity": 1,
+        "circle-stroke-color": "white",
+    },
+});
+
 
     // Add a click event listener to display a popup with the location information
     map3.on("click", "locations", (e) => {
