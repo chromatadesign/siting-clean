@@ -51,7 +51,7 @@ function getGeoData3() {
             },
             properties: {
                 id: locationID3,
-                description: locationInfo3
+                description: locationInfo3,
                 stagetype: stagetype3
             },
         };
