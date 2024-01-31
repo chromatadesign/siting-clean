@@ -22,7 +22,7 @@ let map = new mapboxgl.Map({
 let mq = window.matchMedia("(min-width: 480px)");
 if (mq.matches) {
     // If the screen width is greater than 480px, set zoom level to 2
-    map.setZoom(2);
+    map.setZoom(2.5);
 } else {
     // If the screen width is less than 480px, set zoom level to 2
     map.setZoom(2);
@@ -40,19 +40,16 @@ function getGeoData() {
         let locationInfo = location.querySelector(".locations-map_card").innerHTML;
         let coordinates = [locationLong, locationLat];
         let locationID = location.querySelector("#locationID").value;
+        let stageTag = location.querySelector("#stageTag").value;
+
 
         // Create geolocation data for the map point
         let geoData = {
             type: "Feature",
-            geometry: {
-                type: "Point",
-                coordinates: coordinates
-            },
-            properties: {
-                id: locationID,
-                description: locationInfo
-            },
+            geometry: { type: "Point", coordinates: coordinates },
+            properties: { id: locationID, description: locationInfo, stageTag: stageTag }
         };
+
 
         // Add the geolocation data to mapLocations if it's not already included
         if (mapLocations.features.includes(geoData) === false) {
@@ -68,21 +65,29 @@ getGeoData();
 // Function to add points to the map
 function addMapPoints() {
     // Add a new layer for the location points
-    map.addLayer({
-        id: "locations",
-        type: "circle",
-        source: {
-            type: "geojson",
-            data: mapLocations
-        },
-        paint: {
-            "circle-radius": 7,
-            "circle-stroke-width": 1,
-            "circle-color": "#575ec8",
-            "circle-opacity": 1,
-            "circle-stroke-color": "white",
-        },
-    });
+map.addLayer({
+    id: "locations",
+    type: "circle",
+    source: {
+        type: "geojson",
+        data: mapLocations
+    },
+    paint: {
+        "circle-radius": 7,
+        "circle-stroke-width": 2,
+        "circle-color": [
+            "match",
+            ["get", "stageTag"],
+            "Early", "#F2AE40",
+            "Mid", "#35B9E9",
+            "Late", "#FB97AA",
+            "#D2D2D2" // Default color
+        ],
+        "circle-opacity": 1,
+        "circle-stroke-color": "white"
+    }
+});
+
 
     // Add click event for location points to show a popup
     map.on("click", "locations", (e) => {
