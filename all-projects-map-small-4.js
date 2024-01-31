@@ -36,7 +36,6 @@ function getGeoData3() {
 
         // Extract latitude, longitude, and other information from the DOM elements
         let locationLat3 = location3.querySelector("#locationLatitude3").value;
-        let stagetype3 = stagetype3.querySelector("#stage3").value;
         let locationLong3 = location3.querySelector("#locationLongitude3").value;
         let locationInfo3 = location3.querySelector(".locations-map_card3").innerHTML;
         let coordinates3 = [locationLong3, locationLat3];
