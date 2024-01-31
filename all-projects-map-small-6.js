@@ -40,19 +40,16 @@ function getGeoData3() {
         let locationInfo3 = location3.querySelector(".locations-map_card3").innerHTML;
         let coordinates3 = [locationLong3, locationLat3];
         let locationID3 = location3.querySelector("#locationID3").value;
+        let stageTag3 = location3.querySelector("#stageTag3").value;
+
 
         // Create a GeoJSON feature for the location
         let geoData3 = {
             type: "Feature",
-            geometry: {
-                type: "Point",
-                coordinates: coordinates3
-            },
-            properties: {
-                id: locationID3,
-                description: locationInfo3
-            },
+            geometry: { type: "Point", coordinates: coordinates3 },
+            properties: { id: locationID3, description: locationInfo3, stageTag: stageTag3 }
         };
+
 
         // Add the feature to the FeatureCollection if it's not already included
         if (!mapLocations3.features.includes(geoData3)) {
@@ -68,21 +65,29 @@ getGeoData3();
 // Function to add points to the map based on the geo data
 function addMapPoints3() {
     // Add a layer for the location points
-    map3.addLayer({
-        id: "locations",
-        type: "circle",
-        source: {
-            type: "geojson",
-            data: mapLocations3
-        },
-        paint: {
-            "circle-radius": 7,
-            "circle-stroke-width": 1,
-            "circle-color": "#575ec8",
-            "circle-opacity": 1,
-            "circle-stroke-color": "white",
-        },
-    });
+map3.addLayer({
+    id: "locations",
+    type: "circle",
+    source: {
+        type: "geojson",
+        data: mapLocations3
+    },
+    paint: {
+        "circle-radius": 7,
+        "circle-stroke-width": 1,
+        "circle-color": [
+            "match",
+            ["get", "stageTag"],
+            "Early", "#F2AE40",
+            "Mid", "#35B9E9",
+            "Late", "#FB97AA",
+            "#D2D2D2" // Default color
+        ],
+        "circle-opacity": 1,
+        "circle-stroke-color": "white"
+    }
+});
+
 
     // Add a click event listener to display a popup with the location information
     map3.on("click", "locations", (e) => {
