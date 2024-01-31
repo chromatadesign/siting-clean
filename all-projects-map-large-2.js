@@ -37,13 +37,15 @@ function getGeoData4() {
         let locationInfo4 = location4.querySelector(".locations-map_card4").innerHTML;
         let coordinates4 = [locationLong4, locationLat4];
         let locationID4 = location4.querySelector("#locationID4").value;
+        let stageTag4 = location4.querySelector("#stageTag4").value;
 
         // Create GeoJSON data for the location
         let geoData4 = {
             type: "Feature",
             geometry: { type: "Point", coordinates: coordinates4 },
-            properties: { id: locationID4, description: locationInfo4 }
+            properties: { id: locationID4, description: locationInfo4, stageTag: stageTag4 }
         };
+
 
         // Add the location to the map if it's not already included
         if (mapLocations4.features.includes(geoData4) === false) {
@@ -57,21 +59,29 @@ getGeoData4();
 // Function to add points to the map
 function addMapPoints4() {
     // Add a new layer with the locations
-    map4.addLayer({
-        id: "locations",
-        type: "circle",
-        source: {
-            type: "geojson",
-            data: mapLocations4
-        },
-        paint: {
-            "circle-radius": 7,
-            "circle-stroke-width": 1,
-            "circle-color": "#575ec8",
-            "circle-opacity": 1,
-            "circle-stroke-color": "white"
-        }
-    });
+map4.addLayer({
+    id: "locations",
+    type: "circle",
+    source: {
+        type: "geojson",
+        data: mapLocations4
+    },
+    paint: {
+        "circle-radius": 7,
+        "circle-stroke-width": 1,
+        "circle-color": [
+            "match",
+            ["get", "stageTag"],
+            "Early", "#F2AE40",
+            "Mid", "#35B9E9",
+            "Late", "#FB97AA",
+            "#686868" // Default color
+        ],
+        "circle-opacity": 1,
+        "circle-stroke-color": "white"
+    }
+});
+
 
     // Add click event listener for the location points
     map4.on("click", "locations", (e) => {
