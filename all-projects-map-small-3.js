@@ -1,4 +1,5 @@
 // Set the access token for Mapbox
+
 mapboxgl.accessToken = "pk.eyJ1IjoiYmFudGFtY29tdGVjaCIsImEiOiJjbG9mdXV6NGkwc2hqMm1xZW9oajNpbGY0In0.TXWumDIlMm3SwVlURA-RuA";
 
 // Initialize an empty FeatureCollection for map locations
