@@ -26,7 +26,7 @@ let map = new mapboxgl.Map({
 let mq = window.matchMedia("(min-width: 480px)");
 if (mq.matches) {
     // If the screen width is greater than 480px, set zoom level to 2
-    map.setZoom(6);
+    map.setZoom(8);
 } else {
     // If the screen width is less than 480px, set zoom level to 2
     map.setZoom(2);
