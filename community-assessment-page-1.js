@@ -101,7 +101,7 @@ document.addEventListener('DOMContentLoaded', function() {
         console.error('Element with ID "institutions-link" not found.');
     }
 });
-</script>
+
 
 
 
