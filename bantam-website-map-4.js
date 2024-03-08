@@ -14,7 +14,7 @@ let selectedMapLocations = [];
 let map = new mapboxgl.Map({
     container: "map", // ID of the map container
     style: "mapbox://styles/bantamcomtech/clt5yallb02kq01p6fo4wadt4", // Map style URL
-    center: [-97.1336739, 48.6822613], // Initial geographical center of the map
+    center: [-95.761494, 43.582880], // Initial geographical center of the map
     zoom: 0.5 // Initial zoom level
 });
 
