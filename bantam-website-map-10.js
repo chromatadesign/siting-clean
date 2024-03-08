@@ -13,8 +13,8 @@ let selectedMapLocations = [];
 // Create a new map instance
 let map = new mapboxgl.Map({
     container: "map", // ID of the map container
-    style: "mapbox://styles/bantamcomtech/clt5yallb02kq01p6fo4wadt4", // Map style URL
-    center: [-96, 40], // Initial geographical center of the map
+    style: "mapbox://styles/bantamcomtech/cljd844ss002801qr04a75a06", // Map style URL
+    center: [-96, 38.5], // Initial geographical center of the map
     zoom: 0.5 // Initial zoom level
 });
 
@@ -22,7 +22,7 @@ let map = new mapboxgl.Map({
 let mq = window.matchMedia("(min-width: 480px)");
 if (mq.matches) {
     // If the screen width is greater than 480px, set zoom level to 2
-    map.setZoom(3.5);
+    map.setZoom(2.5);
 } else {
     // If the screen width is less than 480px, set zoom level to 2
     map.setZoom(2);
@@ -74,14 +74,14 @@ map.addLayer({
     },
     paint: {
         "circle-radius": 7,
-        "circle-stroke-width": 1,
+        "circle-stroke-width": 2,
         "circle-color": [
             "match",
             ["get", "stageTag"],
             "Early", "#F2AE40",
             "Mid", "#35B9E9",
             "Late", "#FB97AA",
-            "#fdcc39" // Default color
+            "#D2D2D2" // Default color
         ],
         "circle-opacity": 1,
         "circle-stroke-color": "white"
