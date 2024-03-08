@@ -14,7 +14,7 @@ let selectedMapLocations = [];
 let map = new mapboxgl.Map({
     container: "map", // ID of the map container
     style: "mapbox://styles/bantamcomtech/clt5yallb02kq01p6fo4wadt4", // Map style URL
-    center: [-95.761494, 43.582880], // Initial geographical center of the map
+    center: [-96, 38.5], // Initial geographical center of the map
     zoom: 0.5 // Initial zoom level
 });
 
@@ -22,7 +22,7 @@ let map = new mapboxgl.Map({
 let mq = window.matchMedia("(min-width: 480px)");
 if (mq.matches) {
     // If the screen width is greater than 480px, set zoom level to 2
-    map.setZoom(4);
+    map.setZoom(3.5);
 } else {
     // If the screen width is less than 480px, set zoom level to 2
     map.setZoom(2);
