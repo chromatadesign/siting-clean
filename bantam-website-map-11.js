@@ -13,8 +13,7 @@ let selectedMapLocations = [];
 // Create a new map instance
 let map = new mapboxgl.Map({
     container: "map", // ID of the map container
-    style: "mapbox://styles/bantamcomtech/cljd844ss002801qr04a75a06", // Map style URL
-    center: [-96, 38.5], // Initial geographical center of the map
+    style: "mapbox://styles/bantamcomtech/clt5yallb02kq01p6fo4wadt4", // Map style URL
     zoom: 0.5 // Initial zoom level
 });
 
@@ -74,14 +73,14 @@ map.addLayer({
     },
     paint: {
         "circle-radius": 7,
-        "circle-stroke-width": 2,
+        "circle-stroke-width": 1,
         "circle-color": [
             "match",
             ["get", "stageTag"],
             "Early", "#F2AE40",
             "Mid", "#35B9E9",
             "Late", "#FB97AA",
-            "#D2D2D2" // Default color
+            "#fdcc39" // Default color
         ],
         "circle-opacity": 1,
         "circle-stroke-color": "white"
