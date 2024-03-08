@@ -22,7 +22,7 @@ let map = new mapboxgl.Map({
 let mq = window.matchMedia("(min-width: 480px)");
 if (mq.matches) {
     // If the screen width is greater than 480px, set zoom level to 2
-    map.setZoom(2.5);
+    map.setZoom(3.75);
 } else {
     // If the screen width is less than 480px, set zoom level to 2
     map.setZoom(2);
@@ -74,7 +74,7 @@ map.addLayer({
     },
     paint: {
         "circle-radius": 7,
-        "circle-stroke-width": 2,
+        "circle-stroke-width": 1,
         "circle-color": [
             "match",
             ["get", "stageTag"],
@@ -84,7 +84,7 @@ map.addLayer({
             "#fdcc39" // Default color
         ],
         "circle-opacity": 1,
-        "circle-stroke-color": "#fdcc39"
+        "circle-stroke-color": "white"
     }
 });
 
