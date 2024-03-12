@@ -32,7 +32,7 @@ window.$memberstackDom.getCurrentMember().then((member) => {
        // ----------------------------------------------------- 
         
       } else {
-          currentPlan.innerText = "Free";
+          currentPlan.innerText = "";
       }
     } else {
       console.log('no plan connections');
