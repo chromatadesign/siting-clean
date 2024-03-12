@@ -20,19 +20,22 @@ window.$memberstackDom.getCurrentMember().then((member) => {
          
          ) {
 
-        
-       //PLAN NAMES TO DISPLAY -------------------------------
-        
+
+    //PLAN NAMES TO DISPLAY -------------------------------
         if (planIds.includes(PlanSitingClean)) {
-          currentPlan.innerText = "Siting Clean";}
+          currentPlan.innerText = "Siting Clean";} 
         
-        if (planIds.includes(PlanAllAccess)) {
+        else if (planIds.includes(PlanAllAccess)) {
           currentPlan.innerText = "All Access";}
-
-          var targetDiv = document.getElementById(currentPlan.innerText);
-          targetDiv.style.display = "flex"}
-
-       // ----------------------------------------------------- 
+    // ----------------------------------------------------- 
+    
+    
+        var targetDiv = document.getElementById(currentPlan.innerText);
+        if (targetDiv) {
+          targetDiv.style.display = "flex";
+        }
+        
+    
         
       } else {
           currentPlan.innerText = "";
