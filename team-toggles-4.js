@@ -52,13 +52,16 @@ document.addEventListener('DOMContentLoaded', function () {
     // Get the text value of the div with ID "current-plan"
     var planId = document.getElementById("current-plan").textContent.trim();
 
-    // Try to find a div on the page with an ID that matches the text value
-    var targetDiv = document.getElementById(planId);
+    // Use setTimeout to delay the execution of the next block of code by 1000 milliseconds (1 second)
+    setTimeout(function() {
+        // Try to find a div on the page with an ID that matches the text value
+        var targetDiv = document.getElementById(planId);
 
-    // If a matching div is found, set its display to "flex"
-    if (targetDiv) {
-        targetDiv.style.display = "flex";
-    }
+        // If a matching div is found, set its display to "flex"
+        if (targetDiv) {
+            targetDiv.style.display = "flex";
+        }
+    }, 1000); // 1000 milliseconds delay
 });
 
 
