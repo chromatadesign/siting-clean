@@ -7,7 +7,7 @@ window.$memberstackDom.getCurrentMember().then((member) => {
       
       // PLAN IDs -------------------------------------------
       const PlanSitingClean = "pln_siting-clean-ve1f408ec"; 
-      const PlanAllAccess = "pln_blahblah-ultra-oaiz0sdk"; 
+      const PlanAllAccess = "pln_new-all-access-i76m01m9"; 
       // ----------------------------------------------------
       
       const planIds = planConnections.map(connection => connection.planId);
