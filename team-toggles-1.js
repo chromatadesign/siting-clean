@@ -47,4 +47,3 @@ window.$memberstackDom.getCurrentMember().then((member) => {
 
 })
 
-</script>
