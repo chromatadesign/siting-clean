@@ -32,8 +32,15 @@ window.$memberstackDom.getCurrentMember().then((member) => {
     
         var targetDiv = document.getElementById(currentPlan.innerText);
         if (targetDiv) {
-          targetDiv.style.display = "flex";
-        }
+          targetDiv.style.display = "flex";}
+
+
+        // Convert the plan text to lower case and replace spaces with dashes to make it URL-compatible
+        var planText = currentPlan.innerText;
+        var urlCompatiblePlanText = planText.toLowerCase().replace(/\s+/g, '-');
+        var baseURL = "https://www.bantamoneportal.com/team/";
+        var fullURL = baseURL + urlCompatiblePlanText;
+        document.getElementById('projects-p-link').href = fullURL;
         
     
         
