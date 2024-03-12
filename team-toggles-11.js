@@ -36,12 +36,17 @@ window.$memberstackDom.getCurrentMember().then((member) => {
 
 
         // Convert the plan text to lower case and replace spaces with dashes to make it URL-compatible
-        var planText = currentPlan.innerText;
-        var urlCompatiblePlanText = planText.toLowerCase().replace(/\s+/g, '-');
-        var baseURL = "https://www.bantamoneportal.com/team/";
-        var fullURL = baseURL + urlCompatiblePlanText;
-        document.getElementById('projects-page-link').href = fullURL;
-        
+var planText = currentPlan.innerText;
+var urlCompatiblePlanText = planText.toLowerCase().replace(/\s+/g, '-');
+var baseURL = "https://www.bantamoneportal.com/team/";
+var fullURL = baseURL + urlCompatiblePlanText;
+
+// Check if the element with the ID 'projects-page-link' exists before setting the href
+var projectsPageLinkElement = document.getElementById('projects-page-link');
+if (projectsPageLinkElement) {
+    projectsPageLinkElement.href = fullURL;
+}
+
     
         
       } else {
