@@ -24,12 +24,11 @@ window.$memberstackDom.getCurrentMember().then((member) => {
        //PLAN NAMES TO DISPLAY -------------------------------
         
         if (planIds.includes(PlanSitingClean)) {
-          currentPlan.innerText = "Siting Clean";
-          var targetDiv = document.getElementById(currentPlan.innerText);
-          targetDiv.style.display = "flex"}
+          currentPlan.innerText = "Siting Clean";}
         
         if (planIds.includes(PlanAllAccess)) {
-          currentPlan.innerText = "All Access";
+          currentPlan.innerText = "All Access";}
+
           var targetDiv = document.getElementById(currentPlan.innerText);
           targetDiv.style.display = "flex"}
 
