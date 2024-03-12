@@ -24,10 +24,14 @@ window.$memberstackDom.getCurrentMember().then((member) => {
        //PLAN NAMES TO DISPLAY -------------------------------
         
         if (planIds.includes(PlanSitingClean)) {
-          currentPlan.innerText = "Siting Clean";}
+          currentPlan.innerText = "Siting Clean";
+          var targetDiv = document.getElementById(currentPlan.innerText);
+          targetDiv.style.display = "flex"}
         
         if (planIds.includes(PlanAllAccess)) {
-          currentPlan.innerText = "All Access";}
+          currentPlan.innerText = "All Access";
+          var targetDiv = document.getElementById(currentPlan.innerText);
+          targetDiv.style.display = "flex"}
 
        // ----------------------------------------------------- 
         
@@ -46,22 +50,3 @@ window.$memberstackDom.getCurrentMember().then((member) => {
   }
 
 })
-
-// Code to match the text value of "current-plan" div with team logo div ID
-document.addEventListener('DOMContentLoaded', function () {
-    // Get the text value of the div with ID "current-plan"
-    var planId = document.getElementById("current-plan").textContent.trim();
-
-    // Use setTimeout to delay the execution of the next block of code by 1000 milliseconds (1 second)
-    setTimeout(function() {
-        // Try to find a div on the page with an ID that matches the text value
-        var targetDiv = document.getElementById(planId);
-
-        // If a matching div is found, set its display to "flex"
-        if (targetDiv) {
-            targetDiv.style.display = "flex";
-        }
-    }, 2000); 
-});
-
-
