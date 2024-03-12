@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (targetDiv) {
             targetDiv.style.display = "flex";
         }
-    }, 1000); // 1000 milliseconds delay
+    }, 2000); 
 });
 
 
