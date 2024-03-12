@@ -40,7 +40,7 @@ window.$memberstackDom.getCurrentMember().then((member) => {
         var urlCompatiblePlanText = planText.toLowerCase().replace(/\s+/g, '-');
         var baseURL = "https://www.bantamoneportal.com/team/";
         var fullURL = baseURL + urlCompatiblePlanText;
-        document.getElementById('projects-p-link').href = fullURL;
+        document.getElementById('projects-page-link').href = fullURL;
         
     
         
