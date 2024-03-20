@@ -4,18 +4,38 @@ window.$memberstackDom.getCurrentMember().then((member) => {
     if (member.data) {
         const planConnections = member.data["planConnections"];
         if (planConnections && planConnections.length > 0) {
-            // PLAN IDs
+
+            
+            // EDIT HERE ------------------------------------------
             const PlanSitingClean = "pln_siting-clean-ve1f408ec";
             const PlanAllAccess = "pln_new-all-access-i76m01m9";
+            // ----------------------------------------------------
+
             
             const planIds = planConnections.map(connection => connection.planId);
-            if (planIds.includes(PlanSitingClean) || planIds.includes(PlanAllAccess)) {
+            if (
+
+                
+            // EDIT HERE ------------------------------------------
+                planIds.includes(PlanSitingClean) 
+             || planIds.includes(PlanAllAccess) 
+            // ----------------------------------------------------
+
+                
+           ) {
                 // Check if currentPlan div exists
                 var currentPlan = document.getElementById('current-plan');
                 if (currentPlan) {
                     // Update currentPlan text based on plan ID
-                    currentPlan.innerText = planIds.includes(PlanSitingClean) ? "Siting Clean" : "All Access";
+                    currentPlan.innerText = planIds.includes(PlanSitingClean) ? 
 
+                        
+             // EDIT HERE ------------------------------------------        
+                "Siting Clean" 
+              : "All Access"
+             // ----------------------------------------------------
+
+                    ;
                     // Adjust display of target div based on currentPlan text
                     var targetDiv = document.getElementById(currentPlan.innerText);
                     if (targetDiv) {
@@ -27,7 +47,7 @@ window.$memberstackDom.getCurrentMember().then((member) => {
                 // Only proceed if 'currentPlan' exists to avoid errors
                 if (currentPlan) {
                     var planText = currentPlan.innerText.toLowerCase().replace(/\s+/g, '-');
-                    var baseURL = "https://www.bantamoneportal.com/team/";
+                    var baseURL = "https://www.bantamoneportal.com/partner/";
                     var fullURL = baseURL + planText;
                     
                     // Check if projectsPageLinkElement exists before setting href
@@ -47,6 +67,6 @@ window.$memberstackDom.getCurrentMember().then((member) => {
         }
     } else {
         // Optionally, handle cases where no member data is available, e.g., redirect to login
-        // window.location.href = '/login'; // Uncomment this line if you want to redirect to login for non-members
+        
     }
 });
