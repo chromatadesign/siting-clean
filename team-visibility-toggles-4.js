@@ -40,23 +40,14 @@ document.addEventListener("DOMContentLoaded", function() {
                 }
 
                 // Find the child div with class 'team-type-value' and get its text
-        var teamTypeDiv = planDiv.querySelector(".team-type-value");
-        if (teamTypeDiv) {
-            var teamTypeValue = teamTypeDiv.innerText;
-            // Check if the team type is SOURCE
-            if (teamTypeValue === "SOURCE") {
-                // If the team type is SOURCE, find the div with ID 'p-teams-list'
-                var pTeamsListDiv = document.getElementById("p-teams-list");
-                if (pTeamsListDiv) {
-                    // Set the div's display to flex
-                    pTeamsListDiv.style.display = "flex";
-                }
-            } else {
-                // If the team type is not SOURCE, find the div with ID 'p-teams-list'
-                var pTeamsListDiv = document.getElementById("p-teams-list");
-                if (pTeamsListDiv) {
-                    // Set the div's display to none
-                    pTeamsListDiv.style.display = "none";
+                var teamTypeDiv = planDiv.querySelector(".team-type-value");
+                if (teamTypeDiv && teamTypeDiv.innerText === "SOURCE") {
+                    // If the team type is SOURCE, find the div with ID 'p-teams-list'
+                    var pTeamsListDiv = document.getElementById("p-teams-list");
+                    if (pTeamsListDiv) {
+                        // Set the div's display to flex
+                        pTeamsListDiv.style.display = "flex";
+                    }
                 }
             }
         }
