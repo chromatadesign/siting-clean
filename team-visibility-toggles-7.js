@@ -42,23 +42,37 @@ document.addEventListener("DOMContentLoaded", function() {
                 // Find the child div with class 'team-type-value' and decide what to do if it equals "SOURCE" OR "Bantam"
                 var teamTypeDiv = planDiv.querySelector(".team-type-value");
                 if (teamTypeDiv && (teamTypeDiv.innerText === "SOURCE" || teamTypeDiv.innerText === "Bantam")) {
-
+                
                     
-               // If the team type is either SOURCE or Bantam, find the div with ID 'p-teams-list' --------------------------------
-    
-                var pTeamsListDiv = document.getElementById("p-teams-list");          
+             // If the team type is either SOURCE or Bantam, DO THESE THINGS:
+                var pTeamsListDiv = document.getElementById("p-teams-list");
                 if (pTeamsListDiv) {
+                    // Set the div's display to flex
+                    pTeamsListDiv.style.display = "flex";
+                    }
+
+                var pipelinePageLink = document.getElementById("pipeline-page-link");
+                if (pipelinePageLink) {
                 // Set the div's display to flex
-                pTeamsListDiv.style.display = "flex";}
-
-               var pipelinePageLink = document.getElementById("pipeline-page-link");
-               if (pipelinePageLink) {
-               // Set the div's display to flex
-               pipelinePageLink.style.display = "flex";}           
-
-
+                pipelinePageLink.style.display = "flex";
+                    }
                     
-                }
+            } else {
+                    
+                // If the team type is not SOURCE or Bantam, hide the divs
+                var pTeamsListDiv = document.getElementById("p-teams-list");
+                if (pTeamsListDiv) {
+                // Set the div's display to none
+                pTeamsListDiv.style.display = "none";
+                    }
+
+                var pipelinePageLink = document.getElementById("pipeline-page-link");
+                if (pipelinePageLink) {
+                // Set the div's display to none
+                pipelinePageLink.style.display = "none";
+                        }
+                    }
+
 
             }
         }
