@@ -77,4 +77,25 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         }
     });
+
+    // SET VISIBILITY OF EDIT BUTTONS
+    const accessStatus = document.getElementById('access-status-id');
+    // Check if the 'access-status-id' div exists
+    if (accessStatus) {
+        const statusText = accessStatus.innerText;
+        
+        // Find all divs with class 'edit-wrapper'
+        const editWrappers = document.querySelectorAll('.edit-wrapper');
+        
+        // Determine the display style based on the inner text of 'access-status-id'
+        const displayStyle = statusText === 'Edit' ? 'flex' : 'none';
+        
+        // Apply the determined display style to all 'edit-wrapper' divs
+        editWrappers.forEach(function(wrapper) {
+            wrapper.style.display = displayStyle;
+        });}
 });
+
+    
+
+
