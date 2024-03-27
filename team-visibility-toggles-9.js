@@ -65,12 +65,6 @@ document.addEventListener("DOMContentLoaded", function() {
                 // Set the div's display to none
                 pTeamsListDiv.style.display = "none";
                     }
-
-                var pipelinePageLink = document.getElementById("pipeline-page-link");
-                if (pipelinePageLink) {
-                // Set the div's display to none
-                pipelinePageLink.style.display = "none";
-                        }
                     }
 
 
