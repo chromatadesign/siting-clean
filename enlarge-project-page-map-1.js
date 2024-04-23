@@ -11,14 +11,14 @@ let mapLocations2 = {
 let selectedMapLocations2 = [];
 
 // Get coordinates from the DOM elements
-const latitude = parseFloat(document.getElementById("p-latitude").textContent);
-const longitude = parseFloat(document.getElementById("p-longitude").textContent);
+const latitude2 = parseFloat(document.getElementById("p-latitude").textContent);
+const longitude2 = parseFloat(document.getElementById("p-longitude").textContent);
 
 // Creating a new Mapbox map instance
 let map2 = new mapboxgl.Map({
     container: "map2",
     style: "mapbox://styles/bantamcomtech/cljd844ss002801qr04a75a06",
-    center: [longitude, latitude], // Use dynamic coordinates as the initial center
+    center: [longitude2, latitude2], // Use dynamic coordinates as the initial center
     zoom: 2
 });
 
