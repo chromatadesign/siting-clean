@@ -25,9 +25,9 @@ let map2 = new mapboxgl.Map({
 // Setting up a media query (currently empty and not functional)
 let mq2 = window.matchMedia("");
 if (mq2.matches) {
-    map2.setZoom(5);
+    map2.setZoom(7);
 } else {
-    map2.setZoom(5);
+    map2.setZoom(7);
 }
 
 // Retrieving map location elements from the document
