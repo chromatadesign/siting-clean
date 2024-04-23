@@ -139,7 +139,7 @@ map2.on("load", function (e) {
 });
 
 // Handling the enlarged map display (currently hiding it)
-let enlargedMap = document.getElementById("enlarged-map");
+let enlargedMap = document.getElementById("enlarged-project-map");
 if (enlargedMap) {
     enlargedMap.style.display = "none";
     enlargedMap.style.zIndex = 150;
