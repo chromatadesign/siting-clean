@@ -19,7 +19,7 @@ let map2 = new mapboxgl.Map({
     container: "map2",
     style: "mapbox://styles/bantamcomtech/cljd844ss002801qr04a75a06",
     center: [longitude2, latitude2], // Use dynamic coordinates as the initial center
-    zoom: 2
+    zoom: 5
 });
 
 // Setting up a media query (currently empty and not functional)
