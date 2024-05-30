@@ -85,6 +85,8 @@ map.addLayer({
             "Early", "#F2AE40",
             "Mid", "#35B9E9",
             "Late", "#FB97AA",
+            "Denied", "#710e21",
+            "Approved", "#469652",
             "#D2D2D2" // Default color
         ],
         "circle-opacity": 1,
