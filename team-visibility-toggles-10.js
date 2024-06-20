@@ -45,16 +45,17 @@ document.addEventListener("DOMContentLoaded", function() {
                 
                     
              // If the team type is either SOURCE or Bantam, DO THESE THINGS:
+                    
                 var pTeamsListDiv = document.getElementById("p-teams-list");
                 if (pTeamsListDiv) {
                     // Set the div's display to flex
                     pTeamsListDiv.style.display = "flex";
                     }
 
-                var pipelinePageLink = document.getElementById("pipeline-page-link");
-                if (pipelinePageLink) {
+                var developerFilter = document.getElementById("developer-dropdown-filter");
+                if (developerFilter) {
                 // Set the div's display to flex
-                pipelinePageLink.style.display = "flex";
+                developerFilter.style.display = "flex";
                     }
                     
             } else {
