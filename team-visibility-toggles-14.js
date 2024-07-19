@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", function() {
                         projectsPageLinkDiv.setAttribute("href", newURL);
                     }
 
-                    // Find the div with ID 'developer-projects-link' and set the new URL with developer name
+                    // Additional code to set URL for 'developer-projects-link'
                     var developerProjectsLinkDiv = document.getElementById("developer-projects-link");
                     var developerNameDiv = document.getElementById("developer-name");
                     if (developerProjectsLinkDiv && developerNameDiv) {
@@ -74,70 +74,67 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         }
     });
-});
 
-    
-  // SET VISIBILITY OF EDIT BUTTONS
-const accessStatus = document.getElementById('access-status-id');
+    // SET VISIBILITY OF EDIT BUTTONS
+    const accessStatus = document.getElementById('access-status-id');
 
-// Check if the 'access-status-id' div exists
-if (accessStatus) {
-    const statusText = accessStatus.innerText;
-    
-    // Find all divs with class 'edit-wrapper' and 'client-edit-wrapper'
-    const editWrappers = document.querySelectorAll('.edit-wrapper');
-    const clientEditWrappers = document.querySelectorAll('.client-edit-wrapper');
-    
-    // Additional div elements
-    const editFormWrapper = document.getElementById('edit-form-wrapper');
-    const clientEditForm = document.getElementById('client-edit-form');
+    // Check if the 'access-status-id' div exists
+    if (accessStatus) {
+        const statusText = accessStatus.innerText;
+        
+        // Find all divs with class 'edit-wrapper' and 'client-edit-wrapper'
+        const editWrappers = document.querySelectorAll('.edit-wrapper');
+        const clientEditWrappers = document.querySelectorAll('.client-edit-wrapper');
+        
+        // Additional div elements
+        const editFormWrapper = document.getElementById('edit-form-wrapper');
+        const clientEditForm = document.getElementById('client-edit-form');
 
-    if (statusText === 'Edit') {
-        // Set display of 'edit-wrapper' divs to 'flex'
-        editWrappers.forEach(wrapper => {
-            wrapper.style.display = 'flex';
-        });
+        if (statusText === 'Edit') {
+            // Set display of 'edit-wrapper' divs to 'flex'
+            editWrappers.forEach(wrapper => {
+                wrapper.style.display = 'flex';
+            });
 
-        // Set display of 'client-edit-wrapper' divs to 'none'
-        clientEditWrappers.forEach(wrapper => {
-            wrapper.style.display = 'none';
-        });
+            // Set display of 'client-edit-wrapper' divs to 'none'
+            clientEditWrappers.forEach(wrapper => {
+                wrapper.style.display = 'none';
+            });
 
-        // Set 'edit-form-wrapper' display to 'flex' and 'client-edit-form' to 'none'
-        if (editFormWrapper) editFormWrapper.style.display = 'flex';
-        if (clientEditForm) clientEditForm.style.display = 'none';
-    } else if (statusText === 'View') {
-        // Set display of both 'edit-wrapper' and 'client-edit-wrapper' divs to 'none'
-        editWrappers.forEach(wrapper => {
-            wrapper.style.display = 'none';
-        });
+            // Set 'edit-form-wrapper' display to 'flex' and 'client-edit-form' to 'none'
+            if (editFormWrapper) editFormWrapper.style.display = 'flex';
+            if (clientEditForm) clientEditForm.style.display = 'none';
+        } else if (statusText === 'View') {
+            // Set display of both 'edit-wrapper' and 'client-edit-wrapper' divs to 'none'
+            editWrappers.forEach(wrapper => {
+                wrapper.style.display = 'none';
+            });
 
-        clientEditWrappers.forEach(wrapper => {
-            wrapper.style.display = 'none';
-        });
+            clientEditWrappers.forEach(wrapper => {
+                wrapper.style.display = 'none';
+            });
 
-        // Set both 'edit-form-wrapper' and 'client-edit-form' to 'none'
-        if (editFormWrapper) editFormWrapper.style.display = 'none';
-        if (clientEditForm) clientEditForm.style.display = 'none';
-    } else {
-        // Set display of 'edit-wrapper' divs to 'none'
-        editWrappers.forEach(wrapper => {
-            wrapper.style.display = 'none';
-        });
+            // Set both 'edit-form-wrapper' and 'client-edit-form' to 'none'
+            if (editFormWrapper) editFormWrapper.style.display = 'none';
+            if (clientEditForm) clientEditForm.style.display = 'none';
+        } else {
+            // Set display of 'edit-wrapper' divs to 'none'
+            editWrappers.forEach(wrapper => {
+                wrapper.style.display = 'none';
+            });
 
-        // Set display of 'client-edit-wrapper' divs to 'flex'
-        clientEditWrappers.forEach(wrapper => {
-            wrapper.style.display = 'flex';
-        });
+            // Set display of 'client-edit-wrapper' divs to 'flex'
+            clientEditWrappers.forEach(wrapper => {
+                wrapper.style.display = 'flex';
+            });
 
-        // Set 'edit-form-wrapper' display to 'none' and 'client-edit-form' to 'flex'
-        if (editFormWrapper) editFormWrapper.style.display = 'none';
-        if (clientEditForm) clientEditForm.style.display = 'flex';
+            // Set 'edit-form-wrapper' display to 'none' and 'client-edit-form' to 'flex'
+            if (editFormWrapper) editFormWrapper.style.display = 'none';
+            if (clientEditForm) clientEditForm.style.display = 'flex';
+        }
     }
-}
-
-
 });
+
 
     
 
