@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     var developerNameDiv = document.getElementById("developer-name");
                     if (developerProjectsLinkDiv && developerNameDiv) {
                         var developerNameValue = developerNameDiv.innerText;
-                        var developerURL = newURL + "?developer=" + developerNameValue;
+                        var developerURL = newURL + "?B1developer=" + developerNameValue;
                         developerProjectsLinkDiv.setAttribute("href", developerURL);
                     }
                 }
