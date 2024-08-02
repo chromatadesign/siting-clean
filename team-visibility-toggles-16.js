@@ -37,38 +37,42 @@ document.addEventListener("DOMContentLoaded", function() {
                     if (projectsPageLinkDiv) {
                         projectsPageLinkDiv.setAttribute("href", newURL);
                     }
-
-                    // Additional code to set URL for 'developer-projects-link'
-                    var developerProjectsLinkDiv = document.getElementById("developer-projects-link");
-                    var developerNameDiv = document.getElementById("developer-name");
-                    if (developerProjectsLinkDiv && developerNameDiv) {
-                        var developerNameValue = developerNameDiv.innerText;
-                        var developerURL = newURL + "?B1developer=" + developerNameValue;
-                        developerProjectsLinkDiv.setAttribute("href", developerURL);
-                    }
                 }
 
                 // Find the child div with class 'team-type-value' and decide what to do if it equals "SOURCE" OR "Bantam"
                 var teamTypeDiv = planDiv.querySelector(".team-type-value");
-                if (teamTypeDiv && (teamTypeDiv.innerText === "SOURCE" || teamTypeDiv.innerText === "Bantam")) {
-                    // If the team type is either SOURCE or Bantam, DO THESE THINGS:
-                    var pTeamsListDiv = document.getElementById("p-teams-list");
-                    if (pTeamsListDiv) {
-                        // Set the div's display to flex
-                        pTeamsListDiv.style.display = "flex";
+                if (teamTypeDiv) {
+                    if (teamTypeDiv.innerText === "SOURCE" || teamTypeDiv.innerText === "Bantam") {
+                        // If the team type is either SOURCE or Bantam, DO THESE THINGS:
+                        var pTeamsListDiv = document.getElementById("p-teams-list");
+                        if (pTeamsListDiv) {
+                            // Set the div's display to flex
+                            pTeamsListDiv.style.display = "flex";
+                        }
+
+                        var developerFilter = document.getElementById("developer-dropdown-filter");
+                        if (developerFilter) {
+                            // Set the div's display to flex
+                            developerFilter.style.display = "flex";
+                        }
+                    } else {
+                        // If the team type is not SOURCE or Bantam, hide the divs
+                        var pTeamsListDiv = document.getElementById("p-teams-list");
+                        if (pTeamsListDiv) {
+                            // Set the div's display to none
+                            pTeamsListDiv.style.display = "none";
+                        }
                     }
 
-                    var developerFilter = document.getElementById("developer-dropdown-filter");
-                    if (developerFilter) {
-                        // Set the div's display to flex
-                        developerFilter.style.display = "flex";
-                    }
-                } else {
-                    // If the team type is not SOURCE or Bantam, hide the divs
-                    var pTeamsListDiv = document.getElementById("p-teams-list");
-                    if (pTeamsListDiv) {
-                        // Set the div's display to none
-                        pTeamsListDiv.style.display = "none";
+                    // Additional logic if teamTypeDiv.innerText === "Bantam"
+                    if (teamTypeDiv.innerText === "Bantam") {
+                        var developerProjectsLinkDiv = document.getElementById("developer-projects-link");
+                        var developerNameDiv = document.getElementById("developer-name");
+                        if (developerProjectsLinkDiv && developerNameDiv) {
+                            var developerNameValue = developerNameDiv.innerText;
+                            var developerURL = newURL + developerNameValue;
+                            developerProjectsLinkDiv.setAttribute("href", developerURL);
+                        }
                     }
                 }
             }
@@ -134,6 +138,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 });
+
 
 
     
