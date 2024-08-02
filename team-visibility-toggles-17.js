@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", function() {
                         var developerNameDiv = document.getElementById("developer-name");
                         if (developerProjectsLinkDiv && developerNameDiv) {
                             var developerNameValue = developerNameDiv.innerText;
-                            var developerURL = newURL + developerNameValue;
+                            var developerURL = "https://www.bantamoneportal.com/partner/" + developerNameValue;
                             developerProjectsLinkDiv.setAttribute("href", developerURL);
                         }
                     }
