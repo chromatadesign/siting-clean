@@ -75,8 +75,10 @@ document.addEventListener("DOMContentLoaded", function() {
                             }
                         }
                     
-                        // New logic for the bantam-logo visibility
+                        // New logic for the bantam-logo and bantam-icon visibility
                         var bantamLogoDiv = document.getElementById("bantam-logo");
+                        var bantamIconDiv = document.getElementById("bantam-icon");
+                    
                         if (bantamLogoDiv) {
                             if (teamTypeDiv.innerText !== "SOURCE") {
                                 // If teamTypeDiv does not equal "SOURCE", set visibility to flex
@@ -86,7 +88,18 @@ document.addEventListener("DOMContentLoaded", function() {
                                 bantamLogoDiv.style.display = "none";
                             }
                         }
+                    
+                        if (bantamIconDiv) {
+                            if (teamTypeDiv.innerText !== "SOURCE") {
+                                // If teamTypeDiv does not equal "SOURCE", set visibility to flex
+                                bantamIconDiv.style.display = "flex";
+                            } else {
+                                // Otherwise, set visibility to none
+                                bantamIconDiv.style.display = "none";
+                            }
+                        }
                     }
+
 
             }
         }
