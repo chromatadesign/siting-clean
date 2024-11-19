@@ -42,39 +42,52 @@ document.addEventListener("DOMContentLoaded", function() {
                 // Find the child div with class 'team-type-value' and decide what to do if it equals "SOURCE" OR "Bantam"
                 var teamTypeDiv = planDiv.querySelector(".team-type-value");
                 if (teamTypeDiv) {
-                    if (teamTypeDiv.innerText === "SOURCE" || teamTypeDiv.innerText === "Bantam") {
-                        // If the team type is either SOURCE or Bantam, DO THESE THINGS:
-                        var pTeamsListDiv = document.getElementById("p-teams-list");
-                        if (pTeamsListDiv) {
-                            // Set the div's display to flex
-                            pTeamsListDiv.style.display = "flex";
+                        if (teamTypeDiv.innerText === "SOURCE" || teamTypeDiv.innerText === "Bantam") {
+                            // If the team type is either SOURCE or Bantam, DO THESE THINGS:
+                            var pTeamsListDiv = document.getElementById("p-teams-list");
+                            if (pTeamsListDiv) {
+                                // Set the div's display to flex
+                                pTeamsListDiv.style.display = "flex";
+                            }
+                    
+                            var developerFilter = document.getElementById("developer-dropdown-filter");
+                            if (developerFilter) {
+                                // Set the div's display to flex
+                                developerFilter.style.display = "flex";
+                            }
+                        } else {
+                            // If the team type is not SOURCE or Bantam, hide the divs
+                            var pTeamsListDiv = document.getElementById("p-teams-list");
+                            if (pTeamsListDiv) {
+                                // Set the div's display to none
+                                pTeamsListDiv.style.display = "none";
+                            }
                         }
-
-                        var developerFilter = document.getElementById("developer-dropdown-filter");
-                        if (developerFilter) {
-                            // Set the div's display to flex
-                            developerFilter.style.display = "flex";
+                    
+                        // Additional logic if teamTypeDiv.innerText === "Bantam"
+                        if (teamTypeDiv.innerText === "Bantam") {
+                            var developerProjectsLinkDiv = document.getElementById("developer-projects-link");
+                            var developerNameDiv = document.getElementById("developer-name");
+                            if (developerProjectsLinkDiv && developerNameDiv) {
+                                var developerNameValue = developerNameDiv.innerText;
+                                var developerURL = "https://www.bantamoneportal.com/partner/" + developerNameValue;
+                                developerProjectsLinkDiv.setAttribute("href", developerURL);
+                            }
                         }
-                    } else {
-                        // If the team type is not SOURCE or Bantam, hide the divs
-                        var pTeamsListDiv = document.getElementById("p-teams-list");
-                        if (pTeamsListDiv) {
-                            // Set the div's display to none
-                            pTeamsListDiv.style.display = "none";
+                    
+                        // New logic for the bantam-logo visibility
+                        var bantamLogoDiv = document.getElementById("bantam-logo");
+                        if (bantamLogoDiv) {
+                            if (teamTypeDiv.innerText !== "SOURCE") {
+                                // If teamTypeDiv does not equal "SOURCE", set visibility to flex
+                                bantamLogoDiv.style.display = "flex";
+                            } else {
+                                // Otherwise, set visibility to none
+                                bantamLogoDiv.style.display = "none";
+                            }
                         }
                     }
 
-                    // Additional logic if teamTypeDiv.innerText === "Bantam"
-                    if (teamTypeDiv.innerText === "Bantam") {
-                        var developerProjectsLinkDiv = document.getElementById("developer-projects-link");
-                        var developerNameDiv = document.getElementById("developer-name");
-                        if (developerProjectsLinkDiv && developerNameDiv) {
-                            var developerNameValue = developerNameDiv.innerText;
-                            var developerURL = "https://www.bantamoneportal.com/partner/" + developerNameValue;
-                            developerProjectsLinkDiv.setAttribute("href", developerURL);
-                        }
-                    }
-                }
             }
         }
     });
