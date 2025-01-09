@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     }
                 }
 
-                // Find the child div with class 'team-type-value' and decide what to do if it equals "SOURCE" OR "Bantam"
+                // Find the child div with class 'team-type-value' and decide what to do
                 var teamTypeDiv = planDiv.querySelector(".team-type-value");
                 if (teamTypeDiv) {
                     if (teamTypeDiv.innerText === "SOURCE" || teamTypeDiv.innerText === "Bantam") {
@@ -85,7 +85,7 @@ document.addEventListener("DOMContentLoaded", function() {
                         // Set the opacity of client-group to 0%
                         var clientGroupDiv = document.getElementById("client-group");
                         if (clientGroupDiv) {
-                            clientGroupDiv.style.opacity = "0%";
+                            clientGroupDiv.style.opacity = "0";
                         }
 
                         // Set visibility of source-logo and source-icon to flex
@@ -103,8 +103,6 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         }
     });
-});
-
 
     // SET VISIBILITY OF EDIT BUTTONS
     const accessStatus = document.getElementById('access-status-id');
@@ -165,8 +163,6 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 });
-
-
 
     
 
