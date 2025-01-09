@@ -42,68 +42,69 @@ document.addEventListener("DOMContentLoaded", function() {
                 // Find the child div with class 'team-type-value' and decide what to do if it equals "SOURCE" OR "Bantam"
                 var teamTypeDiv = planDiv.querySelector(".team-type-value");
                 if (teamTypeDiv) {
-                        if (teamTypeDiv.innerText === "SOURCE" || teamTypeDiv.innerText === "Bantam") {
-                            // If the team type is either SOURCE or Bantam, DO THESE THINGS:
-                            var pTeamsListDiv = document.getElementById("p-teams-list");
-                            if (pTeamsListDiv) {
-                                // Set the div's display to flex
-                                pTeamsListDiv.style.display = "flex";
-                            }
-                    
-                            var developerFilter = document.getElementById("developer-dropdown-filter");
-                            if (developerFilter) {
-                                // Set the div's display to flex
-                                developerFilter.style.display = "flex";
-                            }
-                        } else {
-                            // If the team type is not SOURCE or Bantam, hide the divs
-                            var pTeamsListDiv = document.getElementById("p-teams-list");
-                            if (pTeamsListDiv) {
-                                // Set the div's display to none
-                                pTeamsListDiv.style.display = "none";
-                            }
+                    if (teamTypeDiv.innerText === "SOURCE" || teamTypeDiv.innerText === "Bantam") {
+                        var pTeamsListDiv = document.getElementById("p-teams-list");
+                        if (pTeamsListDiv) {
+                            pTeamsListDiv.style.display = "flex";
                         }
-                    
-                        // Additional logic if teamTypeDiv.innerText === "Bantam"
-                        if (teamTypeDiv.innerText === "Bantam") {
-                            var developerProjectsLinkDiv = document.getElementById("developer-projects-link");
-                            var developerNameDiv = document.getElementById("developer-name");
-                            if (developerProjectsLinkDiv && developerNameDiv) {
-                                var developerNameValue = developerNameDiv.innerText;
-                                var developerURL = "https://www.bantamoneportal.com/partner/" + developerNameValue;
-                                developerProjectsLinkDiv.setAttribute("href", developerURL);
-                            }
+
+                        var developerFilter = document.getElementById("developer-dropdown-filter");
+                        if (developerFilter) {
+                            developerFilter.style.display = "flex";
                         }
-                    
-                        // New logic for the bantam-logo and bantam-icon visibility
-                        var bantamLogoDiv = document.getElementById("bantam-logo");
-                        var bantamIconDiv = document.getElementById("bantam-icon");
-                    
-                        if (bantamLogoDiv) {
-                            if (teamTypeDiv.innerText !== "SOURCE") {
-                                // If teamTypeDiv does not equal "SOURCE", set visibility to flex
-                                bantamLogoDiv.style.display = "flex";
-                            } else {
-                                // Otherwise, set visibility to none
-                                bantamLogoDiv.style.display = "none";
-                            }
-                        }
-                    
-                        if (bantamIconDiv) {
-                            if (teamTypeDiv.innerText !== "SOURCE") {
-                                // If teamTypeDiv does not equal "SOURCE", set visibility to flex
-                                bantamIconDiv.style.display = "flex";
-                            } else {
-                                // Otherwise, set visibility to none
-                                bantamIconDiv.style.display = "none";
-                            }
+                    } else {
+                        var pTeamsListDiv = document.getElementById("p-teams-list");
+                        if (pTeamsListDiv) {
+                            pTeamsListDiv.style.display = "none";
                         }
                     }
 
+                    if (teamTypeDiv.innerText === "Bantam") {
+                        var developerProjectsLinkDiv = document.getElementById("developer-projects-link");
+                        var developerNameDiv = document.getElementById("developer-name");
+                        if (developerProjectsLinkDiv && developerNameDiv) {
+                            var developerNameValue = developerNameDiv.innerText;
+                            var developerURL = "https://www.bantamoneportal.com/partner/" + developerNameValue;
+                            developerProjectsLinkDiv.setAttribute("href", developerURL);
+                        }
+                    }
 
+                    var bantamLogoDiv = document.getElementById("bantam-logo");
+                    var bantamIconDiv = document.getElementById("bantam-icon");
+
+                    if (bantamLogoDiv) {
+                        bantamLogoDiv.style.display = teamTypeDiv.innerText !== "SOURCE" ? "flex" : "none";
+                    }
+
+                    if (bantamIconDiv) {
+                        bantamIconDiv.style.display = teamTypeDiv.innerText !== "SOURCE" ? "flex" : "none";
+                    }
+
+                    // New logic for "SOURCE"
+                    if (teamTypeDiv.innerText === "SOURCE") {
+                        // Set the opacity of client-group to 0%
+                        var clientGroupDiv = document.getElementById("client-group");
+                        if (clientGroupDiv) {
+                            clientGroupDiv.style.opacity = "0%";
+                        }
+
+                        // Set visibility of source-logo and source-icon to flex
+                        var sourceLogoDiv = document.getElementById("source-logo");
+                        if (sourceLogoDiv) {
+                            sourceLogoDiv.style.display = "flex";
+                        }
+
+                        var sourceIconDiv = document.getElementById("source-icon");
+                        if (sourceIconDiv) {
+                            sourceIconDiv.style.display = "flex";
+                        }
+                    }
+                }
             }
         }
     });
+});
+
 
     // SET VISIBILITY OF EDIT BUTTONS
     const accessStatus = document.getElementById('access-status-id');
