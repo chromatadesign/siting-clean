@@ -42,6 +42,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 // Find the child div with class 'team-type-value' and decide what to do
                 var teamTypeDiv = planDiv.querySelector(".team-type-value");
                 if (teamTypeDiv) {
+                    // Handle SOURCE and Bantam logic
                     if (teamTypeDiv.innerText === "SOURCE" || teamTypeDiv.innerText === "Bantam") {
                         var pTeamsListDiv = document.getElementById("p-teams-list");
                         if (pTeamsListDiv) {
@@ -80,15 +81,18 @@ document.addEventListener("DOMContentLoaded", function() {
                         bantamIconDiv.style.display = teamTypeDiv.innerText !== "SOURCE" ? "flex" : "none";
                     }
 
-                    // New logic for "SOURCE"
-                    if (teamTypeDiv.innerText === "SOURCE") {
-                        // Set the opacity of client-group to 0%
-                        var clientGroupDiv = document.getElementById("client-group");
-                        if (clientGroupDiv) {
+                    // Handle client-group opacity based on team type
+                    var clientGroupDiv = document.getElementById("client-group");
+                    if (clientGroupDiv) {
+                        if (teamTypeDiv.innerText === "SOURCE") {
                             clientGroupDiv.style.opacity = "0";
+                        } else {
+                            clientGroupDiv.style.opacity = "1"; // 100%
                         }
+                    }
 
-                        // Set visibility of source-logo and source-icon to flex
+                    // Handle SOURCE-specific logic
+                    if (teamTypeDiv.innerText === "SOURCE") {
                         var sourceLogoDiv = document.getElementById("source-logo");
                         if (sourceLogoDiv) {
                             sourceLogoDiv.style.display = "flex";
@@ -163,6 +167,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 });
+
 
 
     
