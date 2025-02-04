@@ -173,10 +173,3 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 });
-
-
-
-
-    
-
-
