@@ -68,6 +68,12 @@ document.addEventListener("DOMContentLoaded", function() {
                             var developerURL = "https://www.bantamoneportal.com/partner/" + developerNameValue;
                             developerProjectsLinkDiv.setAttribute("href", developerURL);
                         }
+
+                        // NEW FUNCTIONALITY: Set all elements with class "bantam-edit-wrapper" to display: flex
+                        var bantamEditWrappers = document.querySelectorAll(".bantam-edit-wrapper");
+                        bantamEditWrappers.forEach(wrapper => {
+                            wrapper.style.display = "flex";
+                        });
                     }
 
                     var bantamLogoDiv = document.getElementById("bantam-logo");
@@ -167,6 +173,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 });
+
 
 
 
